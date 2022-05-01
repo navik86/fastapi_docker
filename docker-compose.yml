@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: fastapi-app
+    network_mode: host
+#    ports:
+#      - "8000:80"
+    command: bash -c "uvicorn main:app"
+    env_file:
+      - .env
+    volumes:
+      - ./fast_app.db:/app/fast_app.db:delegated
